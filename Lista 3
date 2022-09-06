@@ -5,11 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-
+// funcao da soma
 int **soma_vetor_ponteiros(int **a, int **b, int n){
 
     int i,j;
     int **c;
+    
+    // alocando a matriz c dinamicamente
     c = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++)
         c[i] = (int*) malloc(n*sizeof(int));
@@ -19,6 +21,7 @@ int **soma_vetor_ponteiros(int **a, int **b, int n){
         for(j=0;j<n;j++)
             c[i][j] = a[i][j] + b[i][j];
     }
+    // retornando c, onde tera a soma das matrizes a e b
     return c;
 }
 
@@ -26,40 +29,40 @@ int main(){
     setlocale(LC_ALL,"portuguese");
     int n;
     int i,j;
-
+    // lendo a dimensao da matriz
     printf("Insira a dimensão da matriz: \t");
     scanf("%d", &n);
 
     int**a, **b;
-
+    // alocando a matriz a de forma dinamica
     a = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++){
         a[i] = (int*) malloc(n*sizeof(int));
     }
-
+    // digitando e lendo os valores de a 
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
             printf("Matriz A: Digite o elementos da linha %d coluna %d \n", i, j);
             scanf("%d", &a[i][j]);
         }
     }
-    
+    // alocando a matriz b de forma dinamica
     b = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++){
         b[i] = (int*) malloc(n*sizeof(int));
     }
 
-   
+    // lendo os valore de b digitados
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
             printf("Matriz B: Digite o elementos da linha %d coluna %d \n", i, j);
             scanf("%d", &b[i][j]);
         }
     }
-
+    // chamando a funcao soma
     int**soma = soma_vetor_ponteiros(a, b,n);
 
-    
+    // imprimindo a soma
     for(i=0;i<n;i++){
     	
         for(j=0;j<n;j++){
@@ -77,11 +80,12 @@ int main(){
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-
+// funcao da subtracao
 int **sub_vetor_ponteiros(int **a, int **b, int n){
 
     int i,j;
     int **c;
+    // alocando matriz c dinamicamente
     c = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++)
         c[i] = (int*) malloc(n*sizeof(int));
@@ -91,6 +95,7 @@ int **sub_vetor_ponteiros(int **a, int **b, int n){
         for(j=0;j<n;j++)
             c[i][j] = a[i][j] - b[i][j];
     }
+    // retornando c, onde tera a subtracao das matrizes a e b
     return c;
 }
 
@@ -98,42 +103,42 @@ int main(){
     setlocale(LC_ALL,"portuguese");
     int n;
     int i,j;
-
+    // lendo a dimensao da matriz
     printf("Insira a dimensão da matriz: \t");
     scanf("%d", &n);
 
     int**a, **b;
-
+    // alocando a matriz a de forma dinamica
     a = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++){
         a[i] = (int*) malloc(n*sizeof(int));
     }
-
+    // lendo os valores da matriz a
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
             printf("Matriz A: Digite o elementos da linha %d coluna %d \n", i, j);
             scanf("%d", &a[i][j]);
         }
     }
-    
+    // alocando a matriz b de forma dinamica
     b = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++){
         b[i] = (int*) malloc(n*sizeof(int));
     }
 
-   
+    // lendo os valores da matriz b
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
             printf("Matriz B: Digite o elementos da linha %d coluna %d \n", i, j);
             scanf("%d", &b[i][j]);
         }
     }
-
+    //  chamando a funcao
     int**sub = sub_vetor_ponteiros(a, b,n);
 
     
     for(i=0;i<n;i++){
-    	
+    	// imprimindo o resultado da subtracao das matrizes a e b
         for(j=0;j<n;j++){
         printf("\n %d \t", sub[i][j]);
        
@@ -147,16 +152,17 @@ int main(){
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-
+// funcao da multiplicacao
 int **mult_vetor_ponteiros(int **a, int **b, int n){
 
     int i,j;
     int **c;
+    // alocando a matriz c dinamicamente
     c = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++)
         c[i] = (int*) malloc(n*sizeof(int));
 
-
+     
     for(i=0;i<n;i++){
         for(j=0;j<n;j++)
         	
@@ -164,6 +170,7 @@ int **mult_vetor_ponteiros(int **a, int **b, int n){
 	        
 			
     }
+    // retornando c, que tera o resultado da multiplicacao das matrizes a e b
     return c;
 }
 
@@ -171,42 +178,42 @@ int main(){
     setlocale(LC_ALL,"portuguese");
     int n;
     int i,j;
-
+    // lendo as dimensoes da matriz
     printf("Insira a dimensão da matriz: \t");
     scanf("%d", &n);
 
     int**a, **b;
-
+   // alocando a matriz a de forma dinamica
     a = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++){
         a[i] = (int*) malloc(n*sizeof(int));
     }
-
+    // lendo os valores a 
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
             printf("Matriz A: Digite o elementos da linha %d coluna %d \n", i, j);
             scanf("%d", &a[i][j]);
         }
     }
-    
+    // alocando a matriz b de forma dinamica
     b = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++){
         b[i] = (int*) malloc(n*sizeof(int));
     }
 
-   
+    // lendo os valores de b
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
             printf("Matriz B: Digite o elementos da linha %d coluna %d \n", i, j);
             scanf("%d", &b[i][j]);
         }
     }
-
+   // chamando a funcao
     int**mult = mult_vetor_ponteiros(a, b,n);
 
     
     for(i=0;i<n;i++){
-    	
+    	// imprimindo o resultado
         for(j=0;j<n;j++){
         printf("\n %d \t", mult[i][j]);
        
@@ -228,18 +235,19 @@ int main(){
    
 
     int n;
-
+    // lendo a dimensao da matriz
     printf("Insira a dimensão da matriz: \t");
     scanf("%d", &n);
     
     int**A;
     int i, j;
+    // alocando a matriz A
     A = (int**) malloc(n*sizeof(int*));
     for(i=0; i<n; i++){
         A[i] = (int*) malloc(n*sizeof(int));
     }
-
-    
+  
+    // lendo os valores da matriz A
     for(i=0;i<n;i++){
         for(j=0;j<n;j++){
             printf("Digite o valor da linha %d coluna %d \n", i, j);
@@ -247,6 +255,7 @@ int main(){
         }
     }
     
+    // imprimindo matriz
     printf("Matriz \n");
     for(i=0;i<n;i++)
         for(j=0;j<n;j++){
@@ -256,14 +265,14 @@ int main(){
         
     
     
-
+     // imprimindo resultado a ser verificado
     int valor = a(A, n, 3); 
     printf("Resultado %d", valor); 
     
 return 0;
 }
 
-
+// verificando valor 
 int a(int **A, int n, int valor){
   
     int i, j;
@@ -290,19 +299,19 @@ int main(){
     int i,j;
     
     int**a;
-
+    // alocando matriz 3x3
     a = (int**) malloc(3*sizeof(int*));
     for(i=0; i<3; i++){
         a[i] = (int*) malloc(3*sizeof(int));
     }
-
+    // lendo elemendos da matriz
     for(i=0;i<3;i++){
         for(j=0;j<3;j++){
             printf("Digite o elementos");
             scanf("%d", &a[i][j]);
         }
     }
-
+     // imprimindo matriz
      for(i=0;i<3;i++){
      	   for(j=0;j<3;j++){
 		 printf("%d", a[i][j]);
@@ -310,22 +319,22 @@ int main(){
 	  printf("\n");
 	 }
    
-    
+  
      int dp, ds;
      dp = 0;
      ds = 0;
      
- 
+      // verificando a soma da diagonal principal
  	for(i=0;i<3;i++){
 		 dp = dp + a[i][i];
 	 }
- 	
+     // verificando a soma da diagonal secundaria
      	for(i=0;i<3;i++){
 		 ds = ds + a[i][3-i-1];
 	 }
 	
 	
-
+      // verificando soma das linhas 
 	printf("\n Soma das linhas:");
 	int aa[3];
 	for (i = 0; i < 3; i++) {
@@ -338,7 +347,7 @@ int main(){
 		printf("%i ", aa[i]);
 	}
 
-
+        // verificando soma das colunas
 	printf("\n Soma das colunas: ");
 	int cc[3];
 	for (j = 0; j < 3; j++) {
@@ -351,9 +360,11 @@ int main(){
 		printf("%i ", cc[i]);
 	}
 	
+	// mostrando o resultado das somas verificadas
+	
 	printf("\n Soma diagonal principal %i\t", dp);
     printf("\n Soma diagonal secundária %i\n",ds);
-
+       // verificando se a matriz e cubo magico ou nao
 	int vlin = 1, vcol = 1;
 	if (vlin && vcol && dp == ds && dp == aa[0]) {
 		printf("A matriz é um quadrado mágico");
@@ -361,7 +372,7 @@ int main(){
 		printf("A matriz não é um quadrado nao magico");
 	}
     
-    
+        
 	for (i = 1; i <  3; i++) {
 		if (aa[i] != aa[i-1]) {
 			vlin = 0;
